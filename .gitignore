@@ -1,0 +1,117 @@
+# ==============================================================================
+# TransformAI Root .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Environment Variables & Secrets
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+*.cert
+
+# ------------------------------------------------------------------------------
+# Node / Frontend Build Artifacts & Dependencies
+# ------------------------------------------------------------------------------
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+.vite/
+**/.vite/
+dist-ssr/
+*.local
+.eslintcache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------------------------------------------
+# Python Virtual Environments & Caches
+# ------------------------------------------------------------------------------
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+**/env/
+ENV/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ------------------------------------------------------------------------------
+# Testing & Code Quality Caches
+# ------------------------------------------------------------------------------
+.pytest_cache/
+**/.pytest_cache/
+.ruff_cache/
+**/.ruff_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.vitest/
+
+# ------------------------------------------------------------------------------
+# SQLite & Local Databases
+# ------------------------------------------------------------------------------
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+backend/*.db
+backend/transformai.db
+transformai.db
+
+# ------------------------------------------------------------------------------
+# OS & Editor Artifacts
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+**/.idea/
+.vscode/
+**/.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ------------------------------------------------------------------------------
+# Temporary Uploads & Scratch Files
+# ------------------------------------------------------------------------------
+uploads/
+**/uploads/
+scratch/
+**/scratch/
+tmp/
+*.tmp
+*.log

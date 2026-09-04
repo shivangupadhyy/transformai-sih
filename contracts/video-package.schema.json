@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VideoPackage",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "duration_seconds", "creative_concept", "scenes", "narration", "subtitles", "visual_recommendations", "source_claims"],
+  "properties": {
+    "title": {"type": "string", "maxLength": 120},
+    "duration_seconds": {"type": "integer", "minimum": 30, "maximum": 120},
+    "creative_concept": {"type": "string", "maxLength": 500},
+    "scenes": {"type": "array", "minItems": 4, "maxItems": 8, "items": {"$ref": "#/$defs/scene"}},
+    "narration": {"type": "string", "maxLength": 2800},
+    "subtitles": {"type": "array", "minItems": 4, "maxItems": 16, "items": {"type": "string", "maxLength": 180}},
+    "visual_recommendations": {"type": "array", "minItems": 3, "maxItems": 8, "items": {"type": "string", "maxLength": 240}},
+    "source_claims": {"$ref": "common.schema.json#/$defs/sourceClaims"}
+  },
+  "$defs": {
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scene_number", "duration_seconds", "visual", "narration"],
+      "properties": {
+        "scene_number": {"type": "integer", "minimum": 1, "maximum": 8},
+        "duration_seconds": {"type": "integer", "minimum": 3, "maximum": 30},
+        "visual": {"type": "string", "maxLength": 350},
+        "narration": {"type": "string", "maxLength": 350}
+      }
+    }
+  }
+}

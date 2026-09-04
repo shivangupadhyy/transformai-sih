@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Advisory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["title", "issued_date", "audience", "situation", "impact", "actions", "reporting_guidance", "source_claims"],
+  "properties": {
+    "title": {"type": "string", "maxLength": 140},
+    "issued_date": {"type": "string", "description": "Human-readable date or 'Not specified in source'."},
+    "audience": {"type": "string", "maxLength": 160},
+    "situation": {"type": "string", "maxLength": 1400},
+    "impact": {"type": "string", "maxLength": 900},
+    "actions": {"type": "array", "minItems": 3, "maxItems": 8, "items": {"type": "string", "maxLength": 300}},
+    "reporting_guidance": {"type": "string", "maxLength": 700},
+    "source_claims": {"$ref": "common.schema.json#/$defs/sourceClaims"}
+  }
+}

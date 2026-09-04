@@ -1,0 +1,6 @@
+from app.api.routes.health import router as health_router
+from app.api.routes.projects import router as projects_router
+from app.api.routes.generations import router as generations_router
+
+__all__ = ["health_router", "projects_router", "generations_router"]
+
