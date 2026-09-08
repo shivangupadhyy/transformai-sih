@@ -53,8 +53,11 @@ develop-eggs/
 dist/
 downloads/
 eggs/
-.eggs/
-lib/
+.venv/lib/
+venv/lib/
+env/lib/
+!frontend/src/lib/
+!src/lib/
 lib64/
 parts/
 sdist/

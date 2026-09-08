@@ -12,16 +12,21 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      setSession(data.session);
-      setIsLoading(false);
-    }).catch(() => {
-      setIsLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(({ data }: { data: { session: Session | null } }) => {
+        setSession(data?.session ?? null);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+      });
 
-    const { data: subscription } = supabase.auth.onAuthStateChange((_event, nextSession) => {
-      setSession(nextSession);
-    });
+    const { data: subscription } = supabase.auth.onAuthStateChange(
+      (_event: string, nextSession: Session | null) => {
+        setSession(nextSession);
+      }
+    );
 
     return () => subscription.subscription.unsubscribe();
   }, []);

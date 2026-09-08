@@ -206,7 +206,7 @@ export function DashboardPage({ onSignOut }: DashboardPageProps) {
     setStatusMessage("Transforming source via OpenAI Responses API into structured formats…");
 
     try {
-      let currentProj = activeProject;
+      let currentProj: Project | null = activeProject;
       if (!currentProj) {
         currentProj = await createProject(
           projectTitle.trim() || "Intelligence Transformation",
@@ -215,10 +215,14 @@ export function DashboardPage({ onSignOut }: DashboardPageProps) {
           settings
         );
         setActiveProject(currentProj);
-        setProjects((prev) => [currentProj!, ...prev]);
+        setProjects((prev) => [currentProj as Project, ...prev]);
       } else {
         // Ensure latest text is saved
         await createProject(projectTitle, sourceType, sourceText, settings);
+      }
+
+      if (!currentProj || !currentProj.id) {
+        throw new Error("Project creation failed or ID is unavailable.");
       }
 
       const generations = await generateProject(currentProj.id, settings);
