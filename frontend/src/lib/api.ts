@@ -7,7 +7,9 @@ import type {
 } from "../types/project";
 import { supabase } from "./supabase";
 
-const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL as string) || "http://localhost:8000";
+const apiBaseUrl =
+  (import.meta.env.VITE_API_BASE_URL as string) || "https://transformai-sih.onrender.com";
+
 
 async function getAuthHeader(): Promise<string> {
   try {
